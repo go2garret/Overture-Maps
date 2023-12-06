@@ -8,7 +8,10 @@ Download the Overture Maps geospatial data repository (See https://overturemaps.
   In this document, we will explore how to access and download datasets provided by Overture Maps (see https://overturemaps.org/). The Overture Maps datasets contain millions of geospatial features of businesses and other places, with detailed information about the place and spatial coordinates for the place. 
 </p>
 <p>
-  We will be looking at the Places dataset provided by Overture, however there are other datasets available (buildings, etc). Happy data hunting!
+  We will be looking at the Places dataset provided by Overture, however there are other datasets available (buildings, etc)
+</p>
+<p>
+  Happy data hunting!
 </p>
 
 # DuckDB
