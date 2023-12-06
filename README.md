@@ -47,7 +47,7 @@ Download the Overture Maps geospatial data repository (See https://overturemaps.
 ) TO 'c:/temp/places_fl.csv' WITH (FORMAT CSV);
 </code>
 <h3>
-  Inspect the file
+  Parse the JSON and WKB fields
 </h3>
 <p>
   The file contains many fields that are in JSON format. We can parse the fields in our output table for easy accessibility using the statement below. Use json_extract and json_extract_string to accomplish this.
@@ -77,8 +77,9 @@ Download the Overture Maps geospatial data repository (See https://overturemaps.
 ) TO 'places_fl.csv' WITH (FORMAT CSV);
 </code>
 <p>
-  In this example, we parse the address field into city, zipcode, and address (see freeform). Just in the state of Florida, it contains location information for over 800,000 business and other locations.
+  In this example, we parse the address field into city, zipcode, and address (see freeform). Just in the state of Florida, it contains location information for over 800,000 business and other locations!
 </p>
 
 # Finally
-There are more datasets available that are continually being updated. Hope this helps!
+<p>There are more datasets available that are continually being updated, so always get the latest version of the data.</p>
+<p>Hope this helps!</p>
