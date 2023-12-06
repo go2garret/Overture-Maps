@@ -75,4 +75,4 @@ Download the Overture Maps geospatial data repository (See https://overturemaps.
 </p>
 
 # Finally
-There are more datasets available that are continually being update. Hope this helps!
+There are more datasets available that are continually being updated. Hope this helps!
