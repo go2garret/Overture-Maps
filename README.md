@@ -10,10 +10,10 @@ Download the Overture Maps geospatial data repository (See https://overturemaps.
 
 # DuckDB
 <p>
-  We will be using DuckDB to access the data from Overturemaps, which is provided in Parquet files. DuckDB is a free SQL editor that handles parquet files. Get the latest version here: https://duckdb.org/. Download the CLI (command line tool). Within the CLI, we can easily run our SQL statements by copying an pasting from this document into the CLI tool. These statements are intended to be enough to get you started and could be modified.
+  We will be using DuckDB to access the data from Overturemaps, which is provided in Parquet files. DuckDB is a free SQL editor that handles parquet files. Get the latest version here: https://duckdb.org/. Download the CLI (command line tool). Within the CLI, we can easily run our SQL statements by copying an pasting from this document into the CLI tool. These statements are intended to be enough to get you going.
 </p>
 <p>
-  Reminder, always check for the latest parquet file releases from the Overture Maps website and reference the newest files in the statements below.
+  Reminder, always check for the latest parquet file releases from the Overture Maps website! Reference the newest files in the statements below.
 </p>
 
 # Querying the Data
