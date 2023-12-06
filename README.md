@@ -21,35 +21,32 @@ Download the Overture Maps geospatial data repository (See https://overturemaps.
   Simple
 </h3>
 <p>
-  Selecting the Places dataset by country for the entire United States.
+  Selecting the Places dataset by country for the entire United States. Do not run this, as we need to download the data (see next step).
 </p>
-<p>
-      SELECT *<br>
-      FROM read_parquet('s3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=places/type=*/*', filename=true, hive_partitioning=1)<br>
-      WHERE json_extract_string(json_extract(addresses::json, '$[0]'), '$.country') = 'US'
-</p>
+<code>SELECT *
+    FROM read_parquet('s3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=places/type=*/*', filename=true, hive_partitioning=1)
+       WHERE json_extract_string(json_extract(addresses::json, '$[0]'), '$.country') = 'US'
+</code>
 <h3>
   Download into file 
 </h3>
 <p>
-  Selecting by country and state.
+  Selecting by country and state and copy into file. 
 </p>
-<p>
-  COPY (
-<br>     SELECT *
-<br>     FROM read_parquet('s3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=places/type=*/*', filename=true, hive_partitioning=1)
-<br>        WHERE json_extract_string(json_extract(addresses::json, '$[0]'), '$.country') = 'US' AND
-<br>        json_extract_string(json_extract(addresses::json, '$[0]'), '$.region') = 'CO'
-<br> ) TO 'c:/temp/places_fl.csv' WITH (FORMAT CSV);
-</p>
+<code>COPY (
+    SELECT *
+    FROM read_parquet('s3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=places/type=*/*', filename=true, hive_partitioning=1)
+       WHERE json_extract_string(json_extract(addresses::json, '$[0]'), '$.country') = 'US' AND
+       json_extract_string(json_extract(addresses::json, '$[0]'), '$.region') = 'FL'
+) TO 'c:/temp/places_fl.csv' WITH (FORMAT CSV);
+</code>
 <h3>
   Inspect the file
 </h3>
 <p>
-  The file contains many fields that are in JSON format, so we need to parse the fields.
+  The file contains many fields that are in JSON format. We can parse the fields in our output table for easy accessibility.
 </p>
-<code>
-  COPY (
+<code>COPY (
     SELECT 
         json_extract_string(json_extract(names::json, '$.common[0]'), '$.value') AS name,
         json_extract_string(categories::json, '$.main') AS category,
@@ -70,5 +67,9 @@ Download the Overture Maps geospatial data repository (See https://overturemaps.
        json_extract_string(json_extract(addresses::json, '$[0]'), '$.region') = 'FL'
 ) TO 'places_fl.csv' WITH (FORMAT CSV);
 </code>
+<p>
+  In this example, we parse the address field into individual fields including city, zipcode, and address. Just in the state of Florida, it contains location information for over 800,000 business and other locations.
+</p>
+
 
 
